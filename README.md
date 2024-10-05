@@ -1,1 +1,2 @@
 # RightsChecker
+# RightsChecker
