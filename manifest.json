@@ -1,7 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "Terms and Conditions Summarizer",
+    "name": "QuickCheck",
     "version": "1.0",
+    "description": "QuickCheck modernizes terms and conditions by scanning and breaking down legal documents into key points, presented as checkboxes for easy review. Personalize the tool to streamline recurring terms across multiple companies and skip sections you generally agree to, saving time while eliminating information imbalance between users and companies. Empower yourself to make smarter, faster decisions without the hassle of reading lengthy legal texts.",
     "permissions": [
         "activeTab",
         "scripting"
