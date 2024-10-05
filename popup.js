@@ -1,27 +1,25 @@
-async function summarizeTerms(text) {
-    try {
-        const response = await fetch('http://localhost:3000/summarize', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ text }),
-        });
-
-        const result = await response.json();
-        return result.summary;
-    } catch (error) {
-        console.error('Error fetching the summary:', error);
-        return 'Unable to summarize at this time.';
-    }
-}
-
 document.addEventListener('DOMContentLoaded', async () => {
-    const response = await chrome.tabs.query({ active: true, currentWindow: true });
-    const tab = response[0];
-    const [result] = await chrome.scripting.executeScript({
-        target: { tabId: tab.id },
-        func: () => document.body.innerText
-    });
+    try {
+        const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
-    const summary = await summarizeTerms(result.result);
-    document.getElementById('checklist').innerText = summary;
+        // Check if the tab URL is valid and accessible
+        if (tab.url.startsWith('http') || tab.url.startsWith('https')) {
+            const [result] = await chrome.scripting.executeScript({
+                target: { tabId: tab.id },
+                func: () => document.body.innerText
+            });
+
+            if (result && result.result) {
+                const summary = await summarizeTerms(result.result);
+                document.getElementById('checklist').innerText = summary;
+            } else {
+                document.getElementById('checklist').innerText = 'Unable to extract terms and conditions from this page.';
+            }
+        } else {
+            document.getElementById('checklist').innerText = 'This page is restricted and cannot be summarized.';
+        }
+    } catch (error) {
+        console.error('Error accessing the tab or summarizing:', error);
+        document.getElementById('checklist').innerText = 'An error occurred while trying to summarize the terms and conditions.';
+    }
 });

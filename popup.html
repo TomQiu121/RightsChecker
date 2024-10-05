@@ -1,5 +1,71 @@
-<div id="summary-container">
-    <h2>Summary of Terms & Conditions</h2>
-    <ul id="checklist"></ul>
-</div>
-<script src="popup.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Conditions Summary</title>
+    <link rel="stylesheet" href="popup.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #summary-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        #summary-container h2 {
+            font-size: 18px;
+            color: #343a40;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        #checklist {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #checklist li {
+            background-color: #f1f3f5;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        #checklist li:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="summary-container">
+        <h2>Summary of Terms & Conditions</h2>
+        <ul id="checklist">
+            <li>Data is collected and shared with third-party partners.</li>
+            <li>You have the right to request data deletion.</li>
+            <li>Subscription is automatically renewed unless canceled.</li>
+            <!-- Example items; these will be filled dynamically by JavaScript -->
+        </ul>
+    </div>
+    <script src="popup.js"></script>
+</body>
+
+</html>
