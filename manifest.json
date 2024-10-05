@@ -23,5 +23,10 @@
     },
     "action": {
         "default_popup": "popup.html"
+    },
+    "icons": {
+        "16": "images/RightsChecker16.jpg",
+        "48": "images/RightsChecker48.jpg",
+        "128": "images/RightsChecker128.jpg"
     }
 }
